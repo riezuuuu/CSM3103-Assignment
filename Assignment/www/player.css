@@ -1,0 +1,151 @@
+/* Reset and basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0; /* Remove default margin */
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+.player-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items vertically */
+    gap: 20px; /* Spacing between sections */
+    margin-top: 20px;
+}
+
+.player-images {
+    max-width: 100%;
+    width: 100%; /* Ensure images take full width */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.player-images img {
+    max-width: 100%; /* Ensure images don't exceed container width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below image */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.player-bio {
+    max-width: 100%;
+    text-align: center; /* Center text within the bio section */
+    color: #fff; /* Set text color to white */
+}
+
+.player-bio h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.player-bio p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.gameplay-video {
+    max-width: 100%;
+    text-align: center; /* Center video container */
+    color: #fff; /* Set text color to white */
+}
+
+.video-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none; /* Remove iframe border */
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+@media (min-width: 768px) {
+    .player-info {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .player-images {
+        width: 30%; /* Adjust image width for larger screens */
+    }
+
+    .player-bio {
+        width: 60%; /* Adjust bio width for larger screens */
+        text-align: left; /* Align text to the left for bio */
+    }
+
+    .gameplay-video {
+        width: 100%; /* Ensure video spans full width on larger screens */
+    }
+
+    /* Add this style to your existing CSS */
+    .play-button {
+        max-width: 100%;
+        height: auto;
+        width: 80px; /* Adjust play button width */
+        display: block; /* Ensure it's a block-level element */
+        margin: 0 auto; /* Center the play button horizontally */
+        cursor: pointer; /* Add pointer cursor to indicate it's clickable */
+}
+
+}
+
+
+
+
+

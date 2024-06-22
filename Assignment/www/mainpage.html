@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be: Star!</title>
+    <link rel="stylesheet" href="mainstyles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('images/backgroud.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding-top: 50px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0; /* Remove default margin */
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            width: 100%; /* Ensure header spans full width */
+            position: fixed; /* Fixed position to stick at the top */
+            top: 0; /* Align at the top */
+            z-index: 1000; /* Ensure header is on top of other content */
+        }
+
+        main {
+            padding: 20px;
+            margin-top: 60px; /* Adjust margin to make space for fixed header */
+            flex: 1; /* Occupy remaining vertical space */
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        /* Additional styles as needed */
+        .countdown {
+            font-size: 36px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Be: Star!</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Welcome to Be: Star!</h2>
+            <p>Explore our app to learn, train, and improve your skills.</p>
+            <div class="form-group">
+                <label for="training-time">Set Training Duration (minutes):</label>
+                <input type="number" id="training-time" min="1" step="1" value="30">
+                <button onclick="startCountdown()">Start Training Countdown</button>
+            </div>
+            <div class="countdown" id="countdown"></div>
+        </section>
+    </main>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="mainpage.html">HOME</a></li>
+                <li><a href="train.html">TRAIN</a></li>
+                <li><a href="learn.html">LEARN</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <!-- JavaScript files -->
+    <script src="mainpage.js"></script>
+    <script>
+        function startCountdown() {
+            var timeInMinutes = parseInt(document.getElementById('training-time').value);
+            var currentTime = Date.parse(new Date());
+            var deadline = new Date(currentTime + timeInMinutes * 60 * 1000);
+
+            function updateCountdown() {
+                var now = new Date().getTime();
+                var distance = deadline - now;
+
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown').innerHTML = minutes + "m " + seconds + "s ";
+
+                if (distance < 0) {
+                    clearInterval(timerInterval);
+                    document.getElementById('countdown').innerHTML = "Time's up!";
+                }
+            }
+
+            updateCountdown(); // Call immediately to avoid delay
+
+            var timerInterval = setInterval(updateCountdown, 1000); // Update every second
+        }
+    </script>
+</body>
+</html>
+
+
+                                  
+
+
